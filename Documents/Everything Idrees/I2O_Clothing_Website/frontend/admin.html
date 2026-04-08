@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - I²O CLOTHING</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="I²O CLOTHING logo" class="site-logo">
+          <span>I²O CLOTHING</span>
+        </a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+      <div id="auth-nav" class="auth-buttons"></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="admin-dashboard" id="admin-dashboard">
+      <div class="dashboard-hero">
+        <h1>Admin Dashboard</h1>
+        <p>Manage products, users, and orders all in one place.</p>
+        <p id="admin-welcome" class="admin-welcome">Welcome, Administrator</p>
+      </div>
+
+      <div class="admin-section">
+        <section class="admin-panel">
+          <h2>Product Manager</h2>
+          <div id="admin-product-message" class="auth-message"></div>
+          <form id="admin-product-form" class="admin-form">
+            <input type="hidden" id="product-id">
+            <div class="form-row">
+              <label for="product-name">Product Name</label>
+              <input type="text" id="product-name" required>
+            </div>
+            <div class="form-row">
+              <label for="product-category">Category</label>
+              <input type="text" id="product-category" required>
+            </div>
+            <div class="form-row">
+              <label for="product-price">Price (₦)</label>
+              <input type="number" id="product-price" required>
+            </div>
+            <div class="form-row">
+              <label for="product-stock">Stock</label>
+              <input type="number" id="product-stock" required>
+            </div>
+            <div class="form-row">
+              <label for="product-image">Image URL</label>
+              <input type="text" id="product-image" required>
+            </div>
+            <div class="form-row">
+              <label for="product-sizes">Sizes/Options</label>
+              <input type="text" id="product-sizes" placeholder="Separate values with commas">
+            </div>
+            <div class="form-row">
+              <label for="product-description">Description</label>
+              <textarea id="product-description" rows="4"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="cta-button primary" id="product-submit-button">Create Product</button>
+              <button type="button" id="product-cancel-button" class="cta-button" style="display:none;">Cancel</button>
+            </div>
+          </form>
+          <div class="table-wrapper">
+            <table id="admin-products-table"></table>
+          </div>
+        </section>
+
+        <section class="admin-panel">
+          <h2>User Accounts</h2>
+          <div class="table-wrapper">
+            <table id="admin-users-table"></table>
+          </div>
+        </section>
+
+        <section class="admin-panel">
+          <h2>Recent Orders</h2>
+          <div class="table-wrapper">
+            <table id="admin-orders-table"></table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 I²O CLOTHING. All rights reserved.</p>
+      <div class="social-media">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+        <a href="#" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" title="WhatsApp Business"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - I²O CLOTHING</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="I²O CLOTHING logo" class="site-logo">
+          <span>I²O CLOTHING</span>
+        </a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+      <div id="auth-nav" class="auth-buttons"></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shop">
+      <h1>Shop Our Collection</h1>
+      <div class="category-filter">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="Bespoke Suits">Bespoke Suits</button>
+        <button class="filter-btn" data-category="Accessories">Accessories</button>
+      </div>
+      <div class="product-grid" id="product-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 I²O CLOTHING. All rights reserved.</p>
+      <div class="social-media">
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+        <a href="#" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" title="WhatsApp Business"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
