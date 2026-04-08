@@ -562,12 +562,38 @@ async function editProduct(id) {
 async function submitAdminProductForm(e) {
   e.preventDefault();
   const id = document.getElementById('product-id').value;
+  let imageUrl = document.getElementById('product-image').value.trim();
+  const fileInput = document.getElementById('product-image-file');
+
+  // If file is selected, upload it first
+  if (fileInput.files.length > 0) {
+    const formData = new FormData();
+    formData.append('image', fileInput.files[0]);
+    try {
+      const uploadResponse = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+      const uploadData = await uploadResponse.json();
+      if (uploadResponse.ok) {
+        imageUrl = uploadData.image_url;
+      } else {
+        document.getElementById('admin-product-message').textContent = uploadData.error || 'Failed to upload image.';
+        return;
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      document.getElementById('admin-product-message').textContent = 'Failed to upload image.';
+      return;
+    }
+  }
+
   const payload = {
     name: document.getElementById('product-name').value.trim(),
     category: document.getElementById('product-category').value.trim(),
     price: parseFloat(document.getElementById('product-price').value),
     description: document.getElementById('product-description').value.trim(),
-    image_url: document.getElementById('product-image').value.trim(),
+    image_url: imageUrl,
     sizes: document.getElementById('product-sizes').value.split(',').map(s => s.trim()).filter(Boolean),
     stock: parseInt(document.getElementById('product-stock').value, 10)
   };
@@ -602,6 +628,7 @@ function resetProductForm() {
   document.getElementById('product-price').value = '';
   document.getElementById('product-description').value = '';
   document.getElementById('product-image').value = '';
+  document.getElementById('product-image-file').value = '';
   document.getElementById('product-sizes').value = '';
   document.getElementById('product-stock').value = 0;
   document.getElementById('product-submit-button').textContent = 'Create Product';

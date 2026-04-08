@@ -3,10 +3,23 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
 const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Multer config for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../frontend/images'));
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});
+const upload = multer({ storage: storage });
 
 const sanitizeUser = (user) => ({
   id: user.id,
@@ -213,6 +226,14 @@ app.post('/api/orders', (req, res) => {
       }
       res.json({ id: this.lastID, message: 'Order submitted successfully' });
     });
+});
+
+// POST /api/upload - Upload image
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+  res.json({ image_url: `images/${req.file.filename}` });
 });
 
 // Catch all handler: send back index.html for client-side routing

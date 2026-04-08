@@ -276,11 +276,11 @@ th, td {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/featured/?nigerian,kaftan,suit,tailoring');
+  background: linear-gradient(rgba(212,175,55,0.8), rgba(212,175,55,0.8)), url('https://source.unsplash.com/featured/?nigerian,kaftan,suit,tailoring');
   background-size: cover;
   background-position: center;
-  color: #fff;
-  padding: 5rem 2rem;
+  color: #0B0B0B;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
@@ -352,9 +352,10 @@ th, td {
   padding: 2rem;
 }
 
-.carousel-item .product-card {
-  margin: 0 auto;
-  max-width: 300px;
+.carousel-item .product-card img {
+  width: 1280px;
+  height: 720px;
+  object-fit: cover;
 }
 
 .carousel-btn {
