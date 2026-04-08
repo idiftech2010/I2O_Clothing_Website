@@ -297,6 +297,7 @@ th, td {
 .cta-button {
   display: inline-block;
   background-color: #D4AF37;
+  border: 2px solid #090909;
   color: #0B0B0B;
   padding: 0.8rem 2rem;
   margin: 0 0.5rem;
@@ -306,13 +307,13 @@ th, td {
 }
 
 .cta-button:hover {
-  background-color: #B8860B;
+  background-color: #D4AF37;
 }
 
 .cta-button.secondary {
   background-color: transparent;
-  border: 2px solid #D4AF37;
-  color: #D4AF37;
+  border: 2px solid #090909;
+  color: #0a0a09;
 }
 
 .cta-button.secondary:hover {
